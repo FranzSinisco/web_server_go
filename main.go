@@ -1,7 +1,6 @@
 package main
 
-import "fmt"
-
 func main() {
-	fmt.Println("vim-go")
+	server := NewServer(":3000")
+	server.Listen()
 }
