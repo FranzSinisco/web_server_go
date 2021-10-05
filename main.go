@@ -2,7 +2,7 @@ package main
 
 func main() {
 	server := NewServer(":3000")
-	server.Handle("/", HandlerRoot)
-	server.Handle("/api", HandleHome)
+	server.Handle("/", HandleRoot)
+	server.Handle("/api", server.AddMiddleware(HandleHome, CheckAuth()))
 	server.Listen()
 }
